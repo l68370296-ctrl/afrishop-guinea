@@ -1,1 +1,770 @@
-<h1>AfriShop Guinea</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AfriShop — Boutique en Ligne | Guinée (v4)</title>
+  <meta name="description" content="AfriShop — votre boutique en ligne de confiance en Guinée. Produits importés de qualité, livraison rapide à Conakry, paiement Orange Money & MTN MoMo." />
+  <style>
+    /* ===================== RESET & TOKENS ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:     #1B6B3A;
+      --green-dk:  #134d29;
+      --green-lt:  #27963b;
+      --gold:      #F5A623;
+      --gold-lt:   #ffbe5c;
+      --orange:    #FF6B35;
+      --white:     #FFFFFF;
+      --off-white: #F8F5F0;
+      --text:      #1a1a1a;
+      --text-muted:#5a5a5a;
+      --radius:    12px;
+      --shadow:    0 4px 24px rgba(0,0,0,.12);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: var(--text); background: var(--off-white); }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ===================== NAV ===================== */
+    nav {
+      position: sticky; top: 0; z-index: 999;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 0;
+    }
+    .nav-logo .logo-icon {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .nav-logo span { font-size: 1.4rem; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+    .nav-logo span em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,.85); font-size: .9rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-actions { display: flex; gap: 12px; align-items: center; }
+    .btn-cart {
+      background: var(--gold); color: var(--green-dk);
+      border: none; padding: 9px 18px; border-radius: 50px;
+      font-weight: 700; font-size: .9rem; cursor: pointer;
+      display: flex; align-items: center; gap: 6px;
+      transition: background .2s, transform .15s;
+    }
+    .btn-cart:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dk) 0%, var(--green) 60%, #2d9e50 100%);
+      min-height: 88vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 80px 5%;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(245,166,35,.18); border: 1px solid rgba(245,166,35,.4);
+      color: var(--gold); padding: 6px 16px; border-radius: 50px;
+      font-size: .82rem; font-weight: 600; margin-bottom: 24px;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1.15; max-width: 700px;
+      position: relative;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p {
+      margin-top: 20px; color: rgba(255,255,255,.8);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      max-width: 540px; line-height: 1.65;
+      position: relative;
+    }
+    .hero-ctas {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      justify-content: center; margin-top: 36px;
+      position: relative;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--green-dk);
+      padding: 15px 36px; border-radius: 50px;
+      font-weight: 800; font-size: 1rem;
+      transition: all .2s; border: none; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(245,166,35,.4);
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,.5); }
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      padding: 14px 32px; border-radius: 50px;
+      font-weight: 700; font-size: 1rem;
+      border: 2px solid rgba(255,255,255,.45);
+      transition: all .2s; cursor: pointer;
+    }
+    .btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+    .hero-stats {
+      display: flex; gap: 40px; flex-wrap: wrap;
+      justify-content: center; margin-top: 52px;
+      position: relative;
+    }
+    .stat { text-align: center; }
+    .stat strong { display: block; font-size: 1.8rem; font-weight: 900; color: var(--gold); }
+    .stat span { font-size: .82rem; color: rgba(255,255,255,.65); margin-top: 2px; }
+    .hero-scroll {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,.5); font-size: .75rem;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    /* ===================== TRUST BAR ===================== */
+    .trust-bar {
+      background: var(--white); padding: 20px 5%;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 32px;
+      border-bottom: 1px solid #e8e3db;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .9rem; font-weight: 600; color: var(--text-muted);
+    }
+    .trust-item .icon { font-size: 1.3rem; }
+
+    /* ===================== SECTION COMMON ===================== */
+    section { padding: 72px 5%; }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-tag {
+      display: inline-block; background: rgba(27,107,58,.1);
+      color: var(--green); font-size: .78rem; font-weight: 700;
+      padding: 4px 14px; border-radius: 50px; margin-bottom: 12px;
+      letter-spacing: .5px; text-transform: uppercase;
+    }
+    .section-header h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; }
+    .section-header p { margin-top: 12px; color: var(--text-muted); font-size: 1rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    /* ===================== CATEGORIES ===================== */
+    .categories { background: var(--off-white); }
+    .cats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    .cat-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 28px 16px; text-align: center;
+      cursor: pointer; transition: all .22s;
+      border: 2px solid transparent;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+    .cat-card:hover { border-color: var(--green); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(27,107,58,.15); }
+    .cat-card .cat-icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .cat-card h3 { font-size: .92rem; font-weight: 700; color: var(--text); }
+    .cat-card p { font-size: .75rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* ===================== PRODUCTS ===================== */
+    .products { background: var(--white); }
+    .products-tabs {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 40px;
+    }
+    .tab-btn {
+      padding: 9px 22px; border-radius: 50px;
+      border: 2px solid #ddd; background: transparent;
+      font-size: .88rem; font-weight: 600; cursor: pointer;
+      transition: all .2s;
+    }
+    .tab-btn.active, .tab-btn:hover { background: var(--green); color: white; border-color: var(--green); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .prod-card {
+      background: var(--off-white); border-radius: var(--radius);
+      overflow: hidden; transition: all .22s;
+      cursor: pointer; position: relative;
+    }
+    .prod-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .prod-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--orange); color: white;
+      font-size: .7rem; font-weight: 800; padding: 3px 10px; border-radius: 50px;
+    }
+    .prod-badge.new { background: var(--green); }
+    .prod-img {
+      height: 200px; background: white;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .prod-img img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform .5s;
+    }
+    .prod-card:hover .prod-img img { transform: scale(1.1); }
+    .prod-img .emoji-fallback { font-size: 4rem; }
+    .prod-info { padding: 16px; }
+    .prod-info h4 { font-size: .95rem; font-weight: 700; }
+    .prod-info .prod-origin { font-size: .75rem; color: var(--text-muted); margin-top: 3px; }
+    .prod-price-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+    .prod-price { font-size: 1.15rem; font-weight: 900; color: var(--green); }
+    .prod-price-old { font-size: .82rem; color: #bbb; text-decoration: line-through; }
+    .prod-stars { font-size: .78rem; color: var(--gold); margin-top: 4px; }
+    .btn-add {
+      width: 100%; margin-top: 14px;
+      background: var(--green); color: white;
+      border: none; border-radius: 8px;
+      padding: 11px; font-weight: 700; font-size: .88rem;
+      cursor: pointer; transition: background .2s;
+    }
+    .btn-add:hover { background: var(--green-lt); }
+
+    /* ===================== PAYMENT ===================== */
+    .payment { background: var(--off-white); }
+    .payment-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .pay-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 32px 24px; text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border-top: 4px solid var(--green);
+      transition: transform .2s;
+    }
+    .pay-card:hover { transform: translateY(-3px); }
+    .pay-card .pay-icon { font-size: 2.8rem; margin-bottom: 16px; }
+    .pay-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+    .pay-card p { font-size: .9rem; color: var(--text-muted); line-height: 1.6; }
+    .pay-card .pay-tag {
+      display: inline-block; margin-top: 14px;
+      background: rgba(27,107,58,.1); color: var(--green);
+      font-size: .75rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 50px;
+    }
+
+    /* ===================== HOW IT WORKS ===================== */
+    .how { background: linear-gradient(135deg, var(--green) 0%, var(--green-dk) 100%); color: var(--white); }
+    .how .section-tag { background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); }
+    .how .section-header h2 { color: var(--white); }
+    .how .section-header p { color: rgba(255,255,255,.7); }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px; position: relative;
+    }
+    .step-card {
+      background: rgba(255,255,255,.1); border-radius: var(--radius);
+      padding: 32px 24px; text-align: center;
+      border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(8px);
+    }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--gold); color: var(--green-dk);
+      font-size: 1.4rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 10px; }
+    .step-card p { font-size: .88rem; color: rgba(255,255,255,.75); line-height: 1.65; }
+
+    /* ===================== TESTIMONIALS ===================== */
+    .testimonials { background: var(--white); }
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .testi-card {
+      background: var(--off-white); border-radius: var(--radius);
+      padding: 28px; border-left: 4px solid var(--green);
+    }
+    .testi-card p { font-size: .93rem; color: var(--text); line-height: 1.7; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green-lt));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: white; font-weight: 800;
+    }
+    .testi-info strong { display: block; font-size: .92rem; font-weight: 700; }
+    .testi-info span { font-size: .78rem; color: var(--text-muted); }
+    .testi-stars { color: var(--gold); font-size: .85rem; margin-top: 2px; }
+
+    /* ===================== NEWSLETTER ===================== */
+    .newsletter {
+      background: var(--gold);
+      text-align: center; padding: 72px 5%;
+    }
+    .newsletter h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 900; color: var(--green-dk); }
+    .newsletter p { margin-top: 10px; color: rgba(27,77,41,.75); font-size: 1rem; }
+    .newsletter-form {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      justify-content: center; margin-top: 30px;
+      max-width: 520px; margin-left: auto; margin-right: auto;
+    }
+    .newsletter-form input {
+      flex: 1; min-width: 240px;
+      padding: 14px 20px; border-radius: 50px;
+      border: none; font-size: .95rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      outline: none;
+    }
+    .newsletter-form button {
+      background: var(--green); color: white;
+      padding: 14px 30px; border-radius: 50px;
+      border: none; font-weight: 800; font-size: .95rem;
+      cursor: pointer; transition: background .2s;
+    }
+    .newsletter-form button:hover { background: var(--green-dk); }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--green-dk); color: rgba(255,255,255,.75);
+      padding: 56px 5% 24px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; margin-bottom: 40px;
+    }
+    .footer-brand .logo-text { font-size: 1.5rem; font-weight: 900; color: white; }
+    .footer-brand .logo-text em { color: var(--gold); font-style: normal; }
+    .footer-brand p { margin-top: 12px; font-size: .88rem; line-height: 1.7; max-width: 260px; }
+    .footer-brand .socials { display: flex; gap: 10px; margin-top: 20px; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.1); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; transition: background .2s; cursor: pointer;
+    }
+    .social-btn:hover { background: var(--gold); color: var(--green-dk); }
+    .footer-col h4 { font-size: .92rem; font-weight: 800; color: white; margin-bottom: 16px; }
+    .footer-col li { margin-bottom: 9px; }
+    .footer-col a { font-size: .86rem; color: rgba(255,255,255,.65); transition: color .2s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+      font-size: .8rem;
+    }
+    .footer-bottom span { color: rgba(255,255,255,.45); }
+    .footer-bottom .made-with { color: rgba(255,255,255,.45); }
+    .footer-bottom .made-with em { color: var(--gold); font-style: normal; }
+
+    /* ===================== FLOATING ACTIONS ===================== */
+    .fab-group {
+      position: fixed; bottom: 24px; right: 24px;
+      display: flex; flex-direction: column; gap: 12px; z-index: 998;
+    }
+    .fab {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+      transition: transform .2s;
+      border: none;
+    }
+    .fab:hover { transform: scale(1.1); }
+    .fab-wa { background: #25D366; color: white; }
+    .fab-top { background: var(--green); color: white; }
+
+    /* ===================== TOAST ===================== */
+    .toast {
+      position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: var(--green-dk); color: white;
+      padding: 13px 24px; border-radius: 50px;
+      font-size: .9rem; font-weight: 600;
+      opacity: 0; pointer-events: none;
+      transition: all .3s; white-space: nowrap; z-index: 9999;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ===================== MOBILE ===================== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .hero-stats { gap: 24px; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAVIGATION ===================== -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-icon">🛍️</div>
+    <span>Afri<em>Shop</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="#categories">Catégories</a>
+    <a href="#products">Produits</a>
+    <a href="#payment">Paiement</a>
+    <a href="#how">Comment ça marche</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-cart" onclick="showToast('🛒 Panier ouvert!')">
+      🛒 <span>Panier (0)</span>
+    </button>
+    <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <span class="hero-badge">🌍 Nouveau Magasin - Livraison Chine-Guinée (8-12 jours)</span>
+  <h1>Achetez <em>Global</em>,<br/>Vivez <em>Local</em></h1>
+  <p>Des milliers de produits importés de qualité — électronique, mode, beauté, maison — livrés directement chez vous à Conakry. Paiement facile via Orange Money &amp; MTN MoMo.</p>
+  <div class="hero-ctas">
+    <a href="#products" class="btn-primary">Découvrir les Produits →</a>
+    <a href="#how" class="btn-secondary">Comment ça marche</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><strong>Nouveau</strong><span>Magasin</span></div>
+    <div class="stat"><strong>Offres</strong><span>de Lancement</span></div>
+    <div class="stat"><strong>8-12j</strong><span>Livraison Chine</span></div>
+    <div class="stat"><strong>100%</strong><span>Paiement sécurisé</span></div>
+  </div>
+  <div class="hero-scroll">
+    <span>Défiler</span>
+    <span>↓</span>
+  </div>
+</section>
+
+<!-- ===================== TRUST BAR ===================== -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="icon">🔒</span> Paiement 100% sécurisé</div>
+  <div class="trust-item"><span class="icon">📦</span> Expédition Directe de Chine — 8 à 12 jours</div>
+  <div class="trust-item"><span class="icon">↩️</span> Retours sous 7 jours</div>
+  <div class="trust-item"><span class="icon">🎧</span> Support client 7j/7</div>
+  <div class="trust-item"><span class="icon">🌍</span> Produits importés certifiés</div>
+</div>
+
+<!-- ===================== CATEGORIES ===================== -->
+<section class="categories" id="categories">
+  <div class="section-header">
+    <span class="section-tag">Nos Catégories</span>
+    <h2>Tout ce dont vous avez besoin</h2>
+    <p>Des centaines de références dans chaque rayon, sourcées directement auprès de fournisseurs certifiés.</p>
+  </div>
+  <div class="cats-grid">
+    <div class="cat-card" onclick="filterProducts('phones')">
+      <div class="cat-icon">📱</div>
+      <h3>Téléphones &amp; Accessoires</h3>
+      <p>120+ produits</p>
+    </div>
+    <div class="cat-card" onclick="filterProducts('fashion')">
+      <div class="cat-icon">👗</div>
+      <h3>Mode &amp; Vêtements</h3>
+      <p>350+ produits</p>
+    </div>
+    <div class="cat-card" onclick="filterProducts('beauty')">
+      <div class="cat-icon">💄</div>
+      <h3>Beauté &amp; Soins</h3>
+      <p>200+ produits</p>
+    </div>
+    <div class="cat-card" onclick="filterProducts('home')">
+      <div class="cat-icon">🏠</div>
+      <h3>Maison &amp; Cuisine</h3>
+      <p>180+ produits</p>
+    </div>
+    <div class="cat-card" onclick="filterProducts('baby')">
+      <div class="cat-icon">👶</div>
+      <h3>Bébé &amp; Enfants</h3>
+      <p>90+ produits</p>
+    </div>
+    <div class="cat-card" onclick="filterProducts('sport')">
+      <div class="cat-icon">⚽</div>
+      <h3>Sport &amp; Loisirs</h3>
+      <p>110+ produits</p>
+    </div>
+    <div class="cat-card" onclick="filterProducts('food')">
+      <div class="cat-icon">🍜</div>
+      <h3>Alimentation &amp; Santé</h3>
+      <p>75+ produits</p>
+    </div>
+    <div class="cat-card" onclick="filterProducts('auto')">
+      <div class="cat-icon">🚗</div>
+      <h3>Auto &amp; Moto</h3>
+      <p>60+ produits</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRODUCTS ===================== -->
+<section class="products" id="products">
+  <div class="section-header">
+    <span class="section-tag">Produits Populaires</span>
+    <h2>Les meilleures ventes du moment</h2>
+    <p>Sélectionnés pour vous — les produits les plus appréciés par nos clients guinéens.</p>
+  </div>
+  <div class="products-tabs">
+    <button class="tab-btn active" onclick="setTab(this,'all')">Tous</button>
+    <button class="tab-btn" onclick="setTab(this,'phones')">Téléphones</button>
+    <button class="tab-btn" onclick="setTab(this,'fashion')">Mode</button>
+    <button class="tab-btn" onclick="setTab(this,'beauty')">Beauté</button>
+    <button class="tab-btn" onclick="setTab(this,'home')">Maison</button>
+  </div>
+  <div class="products-grid" id="productsGrid">
+    <!-- Products injected by JS -->
+  </div>
+</section>
+
+<!-- ===================== PAYMENT METHODS ===================== -->
+<section class="payment" id="payment">
+  <div class="section-header">
+    <span class="section-tag">Modes de Paiement</span>
+    <h2>Payez comme vous voulez</h2>
+    <p>Nous acceptons les modes de paiement les plus utilisés en Guinée — simple, rapide, sécurisé.</p>
+  </div>
+  <div class="payment-grid">
+    <div class="pay-card">
+      <div class="pay-icon">🟠</div>
+      <h3>Orange Money</h3>
+      <p>Le mode de paiement mobile le plus utilisé en Guinée. Transférez depuis votre téléphone en quelques secondes, sans frais supplémentaires.</p>
+      <span class="pay-tag">✓ Recommandé</span>
+    </div>
+    <div class="pay-card">
+      <div class="pay-icon">🟡</div>
+      <h3>MTN Mobile Money</h3>
+      <p>Disponible sur tout le réseau MTN. Compatible avec les utilisateurs MTN MoMo dans toute la Guinée et l'Afrique de l'Ouest.</p>
+      <span class="pay-tag">✓ Populaire</span>
+    </div>
+    <div class="pay-card">
+      <div class="pay-icon">💵</div>
+      <h3>Paiement à la livraison</h3>
+      <p>Recevez votre commande et payez en cash à la livraison. Disponible à Conakry et ses environs. Sans risque.</p>
+      <span class="pay-tag">✓ Disponible à Conakry</span>
+    </div>
+    <div class="pay-card">
+      <div class="pay-icon">💳</div>
+      <h3>Virement &amp; Wari / Ria</h3>
+      <p>Paiement via Western Union, Wari, Ria et MoneyGram. Idéal pour les commandes importantes ou la diaspora.</p>
+      <span class="pay-tag">✓ International</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="how" id="how">
+  <div class="section-header">
+    <span class="section-tag">Notre Processus</span>
+    <h2>Commander en 4 étapes simples</h2>
+    <p>De la sélection à la livraison à votre porte — simple comme bonjour.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h3>Parcourez et choisissez</h3>
+      <p>Explorez nos milliers de produits importés. Filtrez par catégorie, prix ou popularité.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h3>Ajoutez au panier</h3>
+      <p>Sélectionnez vos articles, choisissez la taille/couleur si nécessaire, et passez à la commande.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h3>Payez facilement</h3>
+      <p>Choisissez Orange Money, MTN MoMo, paiement à la livraison ou virement. 100% sécurisé.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <h3>Recevez chez vous</h3>
+      <p>Votre commande est préparée et expédiée de Chine, livrée à votre adresse à Conakry sous 8 à 12 jours ouvrables.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header">
+    <span class="section-tag">Nouveau Magasin</span>
+    <h2>Offres de Lancement</h2>
+    <p>Découvrez nos produits importés de qualité à des prix imbattables pour notre ouverture à Conakry.</p>
+  </div>
+  <div class="testi-grid" style="grid-template-columns: 1fr;">
+    <div class="testi-card" style="text-align: center;">
+      <p style="font-size: 1.2rem; font-weight: 800; color: var(--green);">🎉 Ouverture Officielle - Commandez dès maintenant et bénéficiez de prix exclusifs de lancement !</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="newsletter" id="contact">
+  <h2>🎉 Recevez les meilleures offres !</h2>
+  <p>Inscrivez-vous et bénéficiez de -10% sur votre première commande + alertes promotions exclusives.</p>
+  <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+    <input type="tel" placeholder="Votre numéro WhatsApp / téléphone" required />
+    <button type="submit">S'abonner →</button>
+  </form>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-text">Afri<em>Shop</em></div>
+      <p>La boutique en ligne de confiance de la Guinée. Produits importés de qualité, livraison rapide, paiement local facile.</p>
+    <div class="socials">
+      <div class="social-btn" title="WhatsApp" onclick="window.open('https://wa.me/8618867954290?text=Bonjour%20AfriShop%2C%20je%20souhaite%20me%20renseigner%20sur%20vos%20produits.', '_blank')">💬</div>
+    </div>
+    </div>
+    <div class="footer-col">
+      <h4>Boutique</h4>
+      <ul>
+        <li><a href="#categories">Toutes les catégories</a></li>
+        <li><a href="#products">Nouveautés</a></li>
+        <li><a href="#products">Promotions</a></li>
+        <li><a href="#products">Meilleures ventes</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informations</h4>
+      <ul>
+        <li><a href="#how">Comment commander</a></li>
+        <li><a href="#payment">Modes de paiement</a></li>
+        <li><a href="#">Livraison &amp; délais</a></li>
+        <li><a href="#">Politique de retour</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/8618867954290" target="_blank">WhatsApp: +86 188 6795 4290</a></li>
+        <li><a href="mailto:contact@afrishop.gn">Email: contact@afrishop.gn</a></li>
+        <li><a href="#">Conakry, Guinée</a></li>
+        <li><a href="#">Lun–Sam 8h–20h</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AfriShop. Tous droits réservés.</span>
+    <span class="made-with">Construit avec <em>❤️</em> pour la Guinée</span>
+    <span>ARPT enregistré · Livraison sécurisée</span>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING ACTIONS ===================== -->
+<div class="fab-group">
+  <button class="fab fab-wa" title="WhatsApp" onclick="window.open('https://wa.me/8618867954290?text=Bonjour%20AfriShop%2C%20je%20souhaite%20me%20renseigner%20sur%20vos%20produits.', '_blank')">💬</button>
+  <button class="fab fab-top" title="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</div>
+
+<!-- ===================== TOAST ===================== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+  /* ---- Product Data ---- */
+  const products = [
+    { id:1, name:'Smartphone Tecno Spark 20', cat:'phones', price:850000, old:1100000, img:'https://s.alicdn.com/@sc04/kf/H7b0a8f8d2b8b4b7b9b7b9b7b9b7b9b7bW.jpg', emoji:'📱', origin:'Importé • Chine', stars:'⭐⭐⭐⭐⭐ (128)', badge:'Promo' },
+    { id:2, name:'Xiaomi Redmi Note 13', cat:'phones', price:1200000, old:null, img:'https://s.alicdn.com/@sc04/kf/Hccf98269a6364a78bbde77fed715305eJ.jpg', emoji:'📲', origin:'Importé • Chine', stars:'⭐⭐⭐⭐⭐ (94)', badge:'New' },
+    { id:3, name:'Robe Boubou Wax Premium', cat:'fashion', price:120000, old:180000, img:'https://s.alicdn.com/@sc04/kf/H7657e0af0b1249c386bd20a406c047c7w.jpg', emoji:'👗', origin:'Importé • Sénégal / Chine', stars:'⭐⭐⭐⭐☆ (67)', badge:'Promo' },
+    { id:4, name:'Crème éclaircissante naturelle', cat:'beauty', price:45000, old:null, img:'https://s.alicdn.com/@sc04/kf/Hfe1f273c7973476a87edeb148adafc34Q.jpg', emoji:'✨', origin:'Importé • Côte d\'Ivoire', stars:'⭐⭐⭐⭐⭐ (203)', badge:'New' },
+    { id:5, name:'Ventilateur Solaire 16" Haute Performance', cat:'home', price:695000, old:1500000, img:'https://s.alicdn.com/@sc04/kf/Hfe1f273c7973476a87edeb148adafc34Q.jpg', emoji:'🌬️', origin:'Importé • Chine', stars:'⭐⭐⭐⭐⭐ (251)', badge:'Promo' },
+    { id:6, name:'Power Bank Ultra Fine 10,000mAh', cat:'phones', price:145000, old:450000, img:'https://s.alicdn.com/@sc04/kf/Hc04bc9e4216841f0a6f3a6812e4b0bf8U.jpg', emoji:'🔋', origin:'Importé • Chine', stars:'⭐⭐⭐⭐⭐ (189)', badge:'New' },
+    { id:7, name:'Blender multi-fonctions 600W', cat:'home', price:195000, old:250000, img:'https://s.alicdn.com/@sc04/kf/H2dde3133221e4b82a91b254a4fb36bcaX.jpg', emoji:'🥤', origin:'Importé • Chine', stars:'⭐⭐⭐⭐⭐ (72)', badge:'Promo' },
+    { id:8, name:'Sérum Vitamine C 30ml', cat:'beauty', price:38000, old:null, img:'https://s.alicdn.com/@sc04/kf/Hfe1f273c7973476a87edeb148adafc34Q.jpg', emoji:'💊', origin:'Importé • Maroc', stars:'⭐⭐⭐⭐⭐ (156)', badge:'New' },
+  ];
+
+  let activeTab = 'all';
+
+  function renderProducts(tab) {
+    const grid = document.getElementById('productsGrid');
+    const filtered = tab === 'all' ? products : products.filter(p => p.cat === tab);
+    grid.innerHTML = filtered.map(p => `
+      <div class="prod-card">
+        ${p.badge ? `<span class="prod-badge ${p.badge==='New'?'new':''}">${p.badge}</span>` : ''}
+        <div class="prod-img">
+          ${p.img ? `<img src="${p.img}" alt="${p.name}" onload="this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">` : ''}
+          <div class="emoji-fallback" style="display: none;">${p.emoji}</div>
+        </div>
+        <div class="prod-info">
+          <h4>${p.name}</h4>
+          <p class="prod-origin">🌍 ${p.origin}</p>
+          <div class="prod-price-row">
+            <span class="prod-price">${p.price.toLocaleString('fr-GN')} GNF</span>
+            ${p.old ? `<span class="prod-price-old">${p.old.toLocaleString('fr-GN')} GNF</span>` : ''}
+          </div>
+          <div class="prod-stars">${p.stars}</div>
+          <button class="btn-add" onclick="addToCart('${p.name}')">💬 Commander sur WhatsApp</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function setTab(btn, tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTab = tab;
+    renderProducts(tab);
+  }
+
+  function filterProducts(cat) {
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      const btn = document.querySelector(`.tab-btn[onclick*="${cat}"]`);
+      if (btn) setTab(btn, cat);
+    }, 500);
+  }
+
+  let cartCount = 0;
+  function addToCart(name) {
+    const phone = "8618867954290";
+    const message = `Bonjour AfriShop, je souhaite commander ou me renseigner sur le produit : ${name}`;
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+
+  /* ---- Toast ---- */
+  let toastTimer;
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  /* ---- Newsletter ---- */
+  function handleSubscribe(e) {
+    e.preventDefault();
+    showToast('🎉 Inscrit ! Vous recevrez -10% sur votre première commande.');
+    e.target.reset();
+  }
+
+  /* ---- Mobile Menu ---- */
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    const isOpen = links.style.display === 'flex';
+    links.style.cssText = isOpen
+      ? ''
+      : 'display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--green-dk);padding:20px 5%;gap:16px;z-index:998;';
+  }
+
+  /* ---- Init ---- */
+  renderProducts('all');
+</script>
+</body>
+</html>
