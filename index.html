@@ -40,30 +40,30 @@
   <footer><p>&copy; 2026 AfriShop Guinea. Tous droits réservés.</p></footer>
   <script>
     const products = [
-      { id:1, name:'Tecno Spark 20', price:850000, img:'https://www.tecno-mobile.com/fileadmin/user_upload/Tecno_Spark_20_Main.png', badge:'Promo' },
-      { id:2, name:'Xiaomi Redmi Note 13', price:1200000, img:'https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1704355554.43731557.png', badge:'New' },
+      { id:1, name:'Tecno Spark 20', price:850000, img:'https://images.gsmarena.com/vv/bigpic/tecno-spark20.jpg', badge:'Promo' },
+      { id:2, name:'Xiaomi Redmi Note 13', price:1200000, img:'https://images.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13.jpg', badge:'New' },
       { id:5, name:'Ventilateur Solaire 16 Pouces', price:695000, img:'https://m.media-amazon.com/images/I/71+G8vV8YfL._AC_SL1500_.jpg', badge:'Populaire' },
       { id:6, name:'Power Bank 10,000mAh', price:145000, img:'https://m.media-amazon.com/images/I/61l5-fUv6pL._AC_SL1500_.jpg', badge:'New' },
       { id:7, name:'Blender Multi-fonctions 600W', price:195000, img:'https://m.media-amazon.com/images/I/61K-K+7-pXL._AC_SL1500_.jpg', badge:'Promo' }
     ];
     function render() {
       const grid = document.getElementById('productsGrid');
-      grid.innerHTML = products.map(p => `
-        <div class="prod-card">
-          \${p.badge ? \`<div class="prod-badge">\${p.badge}</div>\` : ''}
-          <div class="prod-img"><img src="\${p.img}" alt="\${p.name}"></div>
-          <div class="prod-info">
-            <div class="prod-badge-cod">🚚 PAYEZ À LA LIVRAISON (COD)</div>
-            <h4>\${p.name}</h4>
-            <div class="prod-price">\${p.price.toLocaleString('fr-GN')} GNF</div>
-            <button class="btn-add" onclick="order('\${p.name}', \${p.price})">💬 Commander sur WhatsApp</button>
-          </div>
-        </div>
-      \`).join('');
+      grid.innerHTML = products.map(p => {
+        return '<div class="prod-card">' +
+          (p.badge ? '<div class="prod-badge">' + p.badge + '</div>' : '') +
+          '<div class="prod-img"><img src="' + p.img + '" alt="' + p.name + '"></div>' +
+          '<div class="prod-info">' +
+            '<div class="prod-badge-cod">🚚 PAYEZ À LA LIVRAISON (COD)</div>' +
+            '<h4>' + p.name + '</h4>' +
+            '<div class="prod-price">' + p.price.toLocaleString("fr-GN") + ' GNF</div>' +
+            '<button class="btn-add" onclick="order(\'' + p.name + '\', ' + p.price + ')">💬 Commander sur WhatsApp</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
     }
     function order(name, price) {
-      const msg = encodeURIComponent(\`Bonjour AfriShop! Je souhaite commander: \${name} (Prix: \${price.toLocaleString('fr-GN')} GNF). Merci de me confirmer la livraison à Conakry.\`);
-      window.location.href = \`https://wa.me/8618867954290?text=\${msg}\`;
+      const msg = encodeURIComponent('Bonjour AfriShop! Je souhaite commander: ' + name + ' (Prix: ' + price.toLocaleString("fr-GN") + ' GNF). Merci de me confirmer la livraison à Conakry.');
+      window.location.href = 'https://wa.me/8618867954290?text=' + msg;
     }
     render();
   </script>
