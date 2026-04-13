@@ -28,6 +28,7 @@
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
 
+
     /* ===================== NAV ===================== */
     nav {
       position: sticky; top: 0; z-index: 999;
@@ -681,7 +682,7 @@
     { id:1, name:'Smartphone Tecno Spark 20', cat:'phones', price:850000, old:1100000, img:'https://s.alicdn.com/@sc04/kf/H7b0a8f8d2b8b4b7b9b7b9b7b9b7b9b7bW.jpg', emoji:'📱', origin:'Importé • Chine', stars:'⭐⭐⭐⭐⭐ (128)', badge:'Promo' },
     { id:2, name:'Xiaomi Redmi Note 13', cat:'phones', price:1200000, old:null, img:'https://s.alicdn.com/@sc04/kf/Hccf98269a6364a78bbde77fed715305eJ.jpg', emoji:'📲', origin:'Importé • Chine', stars:'⭐⭐⭐⭐⭐ (94)', badge:'New' },
     { id:3, name:'Robe Boubou Wax Premium', cat:'fashion', price:120000, old:180000, img:'https://s.alicdn.com/@sc04/kf/H7657e0af0b1249c386bd20a406c047c7w.jpg', emoji:'👗', origin:'Importé • Sénégal / Chine', stars:'⭐⭐⭐⭐☆ (67)', badge:'Promo' },
-    { id:4, name:'Crème éclaircissante naturelle', cat:'beauty', price:45000, old:null, img:'https://s.alicdn.com/@sc04/kf/Hfe1f273c7973476a87edeb148adafc34Q.jpg', emoji:'✨', origin:'Importé • Côte d\'Ivoire', stars:'⭐⭐⭐⭐⭐ (203)', badge:'New' },
+    { id:4, name:'Crème éclaircissante naturelle', cat:'beauty', price:45000, old:null, img:'https://s.alicdn.com/@sc04/kf/Hfe1f273c7973476a87edeb148adafc34Q.jpg', emoji:'✨', origin:'Importé • Côte d'Ivoire', stars:'⭐⭐⭐⭐⭐ (203)', badge:'New' },
     { id:5, name:'Ventilateur Solaire 16" Haute Performance', cat:'home', price:695000, old:1500000, img:'https://s.alicdn.com/@sc04/kf/Hfe1f273c7973476a87edeb148adafc34Q.jpg', emoji:'🌬️', origin:'Importé • Chine', stars:'⭐⭐⭐⭐⭐ (251)', badge:'Promo' },
     { id:6, name:'Power Bank Ultra Fine 10,000mAh', cat:'phones', price:145000, old:450000, img:'https://s.alicdn.com/@sc04/kf/Hc04bc9e4216841f0a6f3a6812e4b0bf8U.jpg', emoji:'🔋', origin:'Importé • Chine', stars:'⭐⭐⭐⭐⭐ (189)', badge:'New' },
     { id:7, name:'Blender multi-fonctions 600W', cat:'home', price:195000, old:250000, img:'https://s.alicdn.com/@sc04/kf/H2dde3133221e4b82a91b254a4fb36bcaX.jpg', emoji:'🥤', origin:'Importé • Chine', stars:'⭐⭐⭐⭐⭐ (72)', badge:'Promo' },
@@ -701,6 +702,7 @@
           <div class="emoji-fallback" style="display: none;">${p.emoji}</div>
         </div>
         <div class="prod-info">
+          <div style="background:var(--gold); color:var(--green-dk); font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:4px; display:inline-block; margin-bottom:6px;">🚚 PAYEZ À LA LIVRAISON (COD)</div>
           <h4>${p.name}</h4>
           <p class="prod-origin">🌍 ${p.origin}</p>
           <div class="prod-price-row">
