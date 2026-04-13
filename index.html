@@ -1,71 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AfriShop — Boutique en Ligne | Guinée</title>
-  <style>
-    :root {
-      --green: #1B6B3A; --green-dk: #134d29; --green-lt: #27963b;
-      --gold: #F5A623; --gold-lt: #ffbe5c; --orange: #FF6B35;
-      --white: #FFFFFF; --off-white: #F8F5F0; --text: #1a1a1a;
-      --text-muted:#5a5a5a; --radius: 12px; --shadow: 0 4px 24px rgba(0,0,0,.12);
-    }
-    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--off-white); color: var(--text); }
-    nav { background: var(--green); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; color: white; position: sticky; top:0; z-index:100; }
-    .nav-logo { font-size: 1.5rem; font-weight: 800; }
-    .nav-logo em { color: var(--gold); font-style: normal; }
-    .hero { background: var(--green-dk); color: white; text-align: center; padding: 60px 5%; }
-    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 40px 5%; }
-    .prod-card { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: 0.3s; position: relative; }
-    .prod-card:hover { transform: translateY(-5px); }
-    .prod-badge { position: absolute; top: 10px; left: 10px; background: var(--orange); color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 800; }
-    .prod-img { height: 200px; background: #eee; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .prod-img img { width: 100%; height: 100%; object-fit: cover; }
-    .prod-info { padding: 15px; }
-    .prod-badge-cod { background: var(--gold); color: var(--green-dk); font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 6px; }
-    .prod-price { color: var(--green); font-size: 1.2rem; font-weight: 900; }
-    .btn-add { width: 100%; background: var(--green); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 10px; }
-    .btn-add:hover { background: var(--green-lt); }
-    footer { background: var(--green-dk); color: white; text-align: center; padding: 40px 5%; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afrishop Guinea - Votre Boutique Électronique de Confiance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .product-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+    </style>
 </head>
-<body>
-  <nav><div class="nav-logo">Afri<em>Shop</em> Guinea</div></nav>
-  <section class="hero">
-    <h1>Achetez Global, Vivez Local</h1>
-    <p>Produits importés livrés à Conakry. Paiement à la livraison (COD) disponible!</p>
-  </section>
-  <div class="products-grid" id="productsGrid"></div>
-  <footer><p>&copy; 2026 AfriShop Guinea. Tous droits réservés.</p></footer>
-  <script>
-    const products = [
-      { id:1, name:'Tecno Spark 20', price:850000, img:'https://images.gsmarena.com/vv/bigpic/tecno-spark20.jpg', badge:'Promo' },
-      { id:2, name:'Xiaomi Redmi Note 13', price:1200000, img:'https://images.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13.jpg', badge:'New' },
-      { id:5, name:'Ventilateur Solaire 16 Pouces', price:695000, img:'https://m.media-amazon.com/images/I/71+G8vV8YfL._AC_SL1500_.jpg', badge:'Populaire' },
-      { id:6, name:'Power Bank 10,000mAh', price:145000, img:'https://m.media-amazon.com/images/I/61l5-fUv6pL._AC_SL1500_.jpg', badge:'New' },
-      { id:7, name:'Blender Multi-fonctions 600W', price:195000, img:'https://m.media-amazon.com/images/I/61K-K+7-pXL._AC_SL1500_.jpg', badge:'Promo' }
-    ];
-    function render() {
-      const grid = document.getElementById('productsGrid');
-      grid.innerHTML = products.map(p => {
-        return '<div class="prod-card">' +
-          (p.badge ? '<div class="prod-badge">' + p.badge + '</div>' : '') +
-          '<div class="prod-img"><img src="' + p.img + '" alt="' + p.name + '"></div>' +
-          '<div class="prod-info">' +
-            '<div class="prod-badge-cod">🚚 PAYEZ À LA LIVRAISON (COD)</div>' +
-            '<h4>' + p.name + '</h4>' +
-            '<div class="prod-price">' + p.price.toLocaleString("fr-GN") + ' GNF</div>' +
-            '<button class="btn-add" onclick="order(\'' + p.name + '\', ' + p.price + ')">💬 Commander sur WhatsApp</button>' +
-          '</div>' +
-        '</div>';
-      }).join('');
-    }
-    function order(name, price) {
-      const msg = encodeURIComponent('Bonjour AfriShop! Je souhaite commander: ' + name + ' (Prix: ' + price.toLocaleString("fr-GN") + ' GNF). Merci de me confirmer la livraison à Conakry.');
-      window.location.href = 'https://wa.me/8618867954290?text=' + msg;
-    }
-    render();
-  </script>
+<body class="bg-gray-50 text-gray-900 font-sans">
+    <header class="bg-blue-700 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold italic">Afrishop <span class="text-yellow-400">Guinée</span></h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-yellow-300">Accueil</a>
+                <a href="#products" class="hover:text-yellow-300">Produits</a>
+                <a href="#contact" class="hover:text-yellow-300">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/224622000000" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-full text-sm font-bold flex items-center transition">
+                    <i class="fab fa-whatsapp mr-2"></i> Commander
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-blue-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Énergie Solaire & High-Tech à Conakry</h2>
+            <p class="text-xl mb-8">Qualité garantie, livraison rapide et paiement à la livraison (COD).</p>
+            <a href="#products" class="bg-yellow-400 text-blue-900 px-8 py-3 rounded-full font-bold text-lg hover:bg-yellow-300 transition shadow-lg">Voir les Offres</a>
+        </div>
+    </section>
+
+    <section id="products" class="py-16">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold mb-10 text-center">Nos Produits Vedettes</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-list">
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6">
+                <h4 class="text-xl font-bold mb-2">Afrishop Guinée</h4>
+                <p>Votre partenaire pour l'importation de qualité.</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-8 text-2xl">
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-green-400"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="text-gray-400">&copy; 2024 Afrishop Guinée. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            {
+                name: "Tecno Spark 20",
+                price: "1,550,000 GNF",
+                desc: "256GB+8GB, Caméra 50MP, Écran 90Hz. Performance et élégance.",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tecno_Spark_20.png/342px-Tecno_Spark_20.png"
+            },
+            {
+                name: "Ventilateur Solaire 16\"",
+                price: "850,000 GNF",
+                desc: "Avec batterie intégrée et panneau solaire. Restez au frais même sans courant.",
+                image: "https://images.unsplash.com/photo-1618941785210-68196656689d?auto=format&fit=crop&q=80&w=600"
+            },
+            {
+                name: "iPhone 15 Pro",
+                price: "14,500,000 GNF",
+                desc: "Le summum de la technologie Apple. Design Titanium et Puce A17 Pro.",
+                image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=600"
+            }
+        ];
+
+        const container = document.getElementById('product-list');
+        products.forEach(p => {
+            container.innerHTML += \`
+                <div class="bg-white rounded-xl shadow-md overflow-hidden product-card border border-gray-100">
+                    <img src="\${p.image}" alt="\${p.name}" class="w-full h-64 object-contain bg-gray-50 p-4">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">\${p.name}</h4>
+                        <p class="text-gray-600 text-sm mb-4">\${p.desc}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold text-lg">\${p.price}</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700">Acheter</button>
+                        </div>
+                    </div>
+                </div>
+            \`;
+        });
+    </script>
 </body>
 </html>
