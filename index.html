@@ -3,85 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afrishop Guinée - Shopping en Ligne</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>AfriShop Guinea | Boutique Officielle</title>
     <style>
-        .cod-badge {
-            background-color: #fbbf24;
-            color: #000;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+        :root { --green: #1B6B3A; --gold: #F5A623; --white: #ffffff; --light-gray: #f9f9f9; }
+        body { font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: var(--light-gray); color: #333; line-height: 1.5; }
+        header { background: var(--green); color: white; padding: 25px 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .hero { background: #134d29; color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
+        .hero h2 { margin: 0 0 10px 0; font-size: 1.8rem; }
+        .hero p { margin: 0; opacity: 0.9; font-weight: 500; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 30px 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.06); padding: 20px; text-align: center; border: 1px solid #eee; display: flex; flex-direction: column; }
+        .badge-cod { background: var(--gold); color: #000; padding: 8px 15px; font-weight: 900; border-radius: 6px; display: inline-block; margin-bottom: 15px; font-size: 0.85rem; text-transform: uppercase; }
+        .prod-img-box { width: 100%; height: 280px; margin-bottom: 20px; border-radius: 10px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; font-size: 100px; border: 1px solid #eee; }
+        .card h3 { margin: 0 0 10px 0; font-size: 1.3rem; color: #111; }
+        .card .desc { color: #666; font-size: 0.95rem; margin-bottom: 15px; flex-grow: 1; }
+        .price { color: var(--green); font-size: 1.8rem; font-weight: 900; margin: 15px 0; border-top: 1px solid #f0f0f0; padding-top: 15px; }
+        .btn { background: var(--green); color: white; padding: 18px; border: none; border-radius: 10px; width: 100%; cursor: pointer; font-size: 1.15rem; text-decoration: none; display: block; font-weight: 800; transition: background 0.2s, transform 0.1s; }
+        .btn:hover { background: #0e4d25; transform: translateY(-2px); }
+        .btn:active { transform: translateY(0); }
+        footer { text-align: center; padding: 50px 20px; color: #999; font-size: 0.85rem; border-top: 1px solid #eee; margin-top: 40px; }
+        @media (max-width: 480px) { .hero h2 { font-size: 1.5rem; } .container { padding: 15px; gap: 20px; } }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <header class="bg-blue-600 text-white p-4 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold italic">Afrishop Guinée</h1>
-            <div class="cod-badge text-sm text-center">🚚 PAYEZ À LA LIVRAISON (COD)</div>
-        </div>
+<body>
+    <header>
+        <h1 style="margin:0; font-size: 2rem; letter-spacing: -1px;">Afri<em>Shop</em> Guinea</h1>
     </header>
-
-    <section class="bg-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-800 mb-4">Qualité & Service à Conakry</h2>
-            <p class="text-gray-600 mb-6">Importateur direct de produits électroniques et solaires.</p>
-        </div>
+    <section class="hero">
+        <h2>🔥 VENTE FLASH : Livraison Chine-Conakry</h2>
+        <p>Paiement à la livraison (COD) • Qualité Garantie • 8-12 jours</p>
     </section>
-
-    <main class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
-                <img class="h-64 w-full object-cover" src="https://sc02.alicdn.com/kf/He185cfd7de044889525707b212c5565O.jpg" alt="Tecno Spark 20">
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Tecno Spark 20</h3>
-                    <p class="text-blue-600 font-bold text-lg mb-4">Prix Spécial</p>
-                    <div class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-1 rounded mb-4 inline-block uppercase">COD DISPONIBLE</div>
-                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Acheter maintenant</button>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
-                <img class="h-64 w-full object-cover" src="https://sc02.alicdn.com/kf/H7b44dba324536968defcf3a44e364q.jpg" alt="Solar Fan">
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Ventilateur Solaire</h3>
-                    <p class="text-blue-600 font-bold text-lg mb-4">Idéal pour la Guinée</p>
-                    <div class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-1 rounded mb-4 inline-block uppercase">COD DISPONIBLE</div>
-                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Acheter maintenant</button>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
-                <img class="h-64 w-full object-cover" src="https://sc02.alicdn.com/kf/H8ee5f2c53f9408f95897f61ad366eceu.jpg" alt="Power Bank">
-                <div class="p-6 text-center">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Power Bank Haute Capacité</h3>
-                    <p class="text-blue-600 font-bold text-lg mb-4">Puissance Mobile</p>
-                    <div class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-1 rounded mb-4 inline-block uppercase">COD DISPONIBLE</div>
-                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Acheter maintenant</button>
-                </div>
-            </div>
+    <div class="container">
+        <!-- Produit 1: Ventilateur -->
+        <div class="card">
+            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON (COD)</div>
+            <div class="prod-img-box">🌬️</div>
+            <h3>Ventilateur Solaire 16" Haute Performance</h3>
+            <p class="desc">Autonomie 10-12h • Batterie Intégrée • Idéal pour les coupures de courant.</p>
+            <div class="price">695,000 GNF</div>
+            <a href="https://wa.me/8618867954290?text=Bonjour%20AfriShop!%20Je%20veux%20commander%20le%20Ventilateur%20Solaire%20(695,000%20GNF)." class="btn">Commander sur WhatsApp</a>
         </div>
-    </main>
-
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4 text-center">
-            <div class="mb-6">
-                <span class="block text-4xl mb-4">🚚</span>
-                <p class="font-bold text-2xl uppercase tracking-widest text-yellow-400">PAYEZ À LA LIVRAISON (COD)</p>
-                <p class="text-gray-400 mt-2">Livraison rapide & sécurisée dans tout Conakry</p>
-            </div>
-            <div class="border-t border-gray-700 pt-8 mt-8">
-                <p>&copy; 2026 Afrishop Guinée. Tous droits réservés.</p>
-            </div>
+        <!-- Produit 2: Power Bank -->
+        <div class="card">
+            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON (COD)</div>
+            <div class="prod-img-box">🔋</div>
+            <h3>Power Bank 10,000mAh Ultra Fine</h3>
+            <p class="desc">Charge Rapide • Format Compact • Capacité Réelle pour Smartphone.</p>
+            <div class="price">145,000 GNF</div>
+            <a href="https://wa.me/8618867954290?text=Bonjour%20AfriShop!%20Je%20veux%20commander%20la%20Power%20Bank%20(145,000%20GNF)." class="btn">Commander sur WhatsApp</a>
         </div>
+        <!-- Produit 3: Tecno -->
+        <div class="card">
+            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON (COD)</div>
+            <div class="prod-img-box">📱</div>
+            <h3>Tecno Spark 20 (256GB / 8GB RAM)</h3>
+            <p class="desc">Caméra 50MP • Performance Fluide • Neuf dans sa boîte.</p>
+            <div class="price">850,000 GNF</div>
+            <a href="https://wa.me/8618867954290?text=Bonjour%20AfriShop!%20Je%20veux%20commander%20le%20Tecno%20Spark%2020%20(850,000%20GNF)." class="btn">Commander sur WhatsApp</a>
+        </div>
+    </div>
+    <footer>
+        &copy; 2026 AfriShop Guinea • Livraison Rapide à Conakry • Service Client 7j/7 • Site Officiel : https://l68370296-ctrl.github.io/afrishop-guinea/
     </footer>
 </body>
 </html>
