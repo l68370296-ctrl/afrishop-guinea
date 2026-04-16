@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AfriShop Guinea | Boutique Officielle</title>
+    <title>AfriShop Guinea | Boutique Officielle Conakry</title>
     <style>
         :root { --green: #1B6B3A; --gold: #F5A623; --white: #ffffff; --light-gray: #f9f9f9; }
         body { font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: var(--light-gray); color: #333; line-height: 1.5; }
@@ -11,59 +11,115 @@
         .hero { background: #134d29; color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
         .hero h2 { margin: 0 0 10px 0; font-size: 1.8rem; }
         .hero p { margin: 0; opacity: 0.9; font-weight: 500; }
+        .stats-badge { background: #eee; color: #666; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-top: 10px; }
         .container { max-width: 1100px; margin: 0 auto; padding: 30px 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.06); padding: 20px; text-align: center; border: 1px solid #eee; display: flex; flex-direction: column; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.06); padding: 20px; text-align: center; border: 1px solid #eee; display: flex; flex-direction: column; position: relative; }
+        .new-label { position: absolute; top: 10px; right: 10px; background: #ff4757; color: white; padding: 4px 10px; border-radius: 5px; font-size: 0.75rem; font-weight: bold; }
         .badge-cod { background: var(--gold); color: #000; padding: 8px 15px; font-weight: 900; border-radius: 6px; display: inline-block; margin-bottom: 15px; font-size: 0.85rem; text-transform: uppercase; }
-        .prod-img-box { width: 100%; height: 280px; margin-bottom: 20px; border-radius: 10px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; font-size: 100px; border: 1px solid #eee; }
+        .prod-img-box { width: 100%; height: 280px; margin-bottom: 20px; border-radius: 10px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .prod-img-box img { width: 100%; height: 100%; object-fit: contain; }
         .card h3 { margin: 0 0 10px 0; font-size: 1.3rem; color: #111; }
         .card .desc { color: #666; font-size: 0.95rem; margin-bottom: 15px; flex-grow: 1; }
         .price { color: var(--green); font-size: 1.8rem; font-weight: 900; margin: 15px 0; border-top: 1px solid #f0f0f0; padding-top: 15px; }
-        .btn { background: var(--green); color: white; padding: 18px; border: none; border-radius: 10px; width: 100%; cursor: pointer; font-size: 1.15rem; text-decoration: none; display: block; font-weight: 800; transition: background 0.2s, transform 0.1s; }
-        .btn:hover { background: #0e4d25; transform: translateY(-2px); }
-        .btn:active { transform: translateY(0); }
+        .btn { background: var(--green); color: white; padding: 18px; border: none; border-radius: 10px; width: 100%; cursor: pointer; font-size: 1.15rem; text-decoration: none; display: block; font-weight: 800; transition: background 0.2s; }
+        .btn:hover { background: #0e4d25; }
+        .trust-section { background: white; padding: 40px 20px; text-align: center; margin-top: 40px; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 20px auto; }
+        .review-card { background: #f9f9f9; padding: 20px; border-radius: 10px; text-align: left; font-size: 0.9rem; }
         footer { text-align: center; padding: 50px 20px; color: #999; font-size: 0.85rem; border-top: 1px solid #eee; margin-top: 40px; }
-        @media (max-width: 480px) { .hero h2 { font-size: 1.5rem; } .container { padding: 15px; gap: 20px; } }
     </style>
 </head>
 <body>
     <header>
-        <h1 style="margin:0; font-size: 2rem; letter-spacing: -1px;">Afri<em>Shop</em> Guinea</h1>
+        <h1 style="margin:0; font-size: 2rem;">Afri<em>Shop</em> Guinea</h1>
+        <div class="stats-badge">Visiteurs : <img src="https://visitor-badge.glitch.me/badge?page_id=l68370296-ctrl.afrishop-guinea" style="vertical-align: middle;"></div>
     </header>
     <section class="hero">
         <h2>🔥 VENTE FLASH : Livraison Chine-Conakry</h2>
         <p>Paiement à la livraison (COD) • Qualité Garantie • 8-12 jours</p>
     </section>
+
     <div class="container">
-        <!-- Produit 1: Ventilateur -->
+        <!-- Ventilateur Solaire -->
         <div class="card">
-            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON (COD)</div>
-            <div class="prod-img-box">🌬️</div>
+            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON</div>
+            <div class="prod-img-box">
+                <img src="https://sc02.alicdn.com/kf/Ae518e07e63ae4c0aa602f211220772ea1.png" alt="Ventilateur Solaire">
+            </div>
             <h3>Ventilateur Solaire 16" Haute Performance</h3>
-            <p class="desc">Autonomie 10-12h • Batterie Intégrée • Idéal pour les coupures de courant.</p>
+            <p class="desc">Autonomie 12h. Rechargeable par panneau solaire. Idéal pour les coupures de courant.</p>
             <div class="price">695,000 GNF</div>
-            <a href="https://wa.me/8618867954290?text=Bonjour%20AfriShop!%20Je%20veux%20commander%20le%20Ventilateur%20Solaire%20(695,000%20GNF)." class="btn">Commander sur WhatsApp</a>
+            <a href="https://wa.me/8618867954290?text=Je%20veux%20le%20Ventilateur%20Solaire%20(695k%20GNF)" class="btn">Commander sur WhatsApp</a>
         </div>
-        <!-- Produit 2: Power Bank -->
+
+        <!-- Power Bank 10k -->
         <div class="card">
-            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON (COD)</div>
-            <div class="prod-img-box">🔋</div>
+            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON</div>
+            <div class="prod-img-box">
+                <img src="https://sc02.alicdn.com/kf/Acc363466658b4f7f9bef450a55c2a5bfT.png" alt="Power Bank">
+            </div>
             <h3>Power Bank 10,000mAh Ultra Fine</h3>
-            <p class="desc">Charge Rapide • Format Compact • Capacité Réelle pour Smartphone.</p>
+            <p class="desc">Charge Rapide. Format Compact. Capacité réelle pour votre smartphone.</p>
             <div class="price">145,000 GNF</div>
-            <a href="https://wa.me/8618867954290?text=Bonjour%20AfriShop!%20Je%20veux%20commander%20la%20Power%20Bank%20(145,000%20GNF)." class="btn">Commander sur WhatsApp</a>
+            <a href="https://wa.me/8618867954290?text=Je%20veux%20la%20Power%20Bank%20(145k%20GNF)" class="btn">Commander sur WhatsApp</a>
         </div>
-        <!-- Produit 3: Tecno -->
+
+        <!-- Tecno Spark 20 -->
         <div class="card">
-            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON (COD)</div>
-            <div class="prod-img-box">📱</div>
+            <div class="new-label">TOP VENTE</div>
+            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON</div>
+            <div class="prod-img-box">
+                <img src="https://sc02.alicdn.com/kf/A8108028ec4f645d89ef55dbb2079a5f7o.png" alt="Tecno Spark 20">
+            </div>
             <h3>Tecno Spark 20 (256GB / 8GB RAM)</h3>
-            <p class="desc">Caméra 50MP • Performance Fluide • Neuf dans sa boîte.</p>
+            <p class="desc">Caméra 50MP. Performance Fluide. Le meilleur rapport qualité/prix.</p>
             <div class="price">850,000 GNF</div>
-            <a href="https://wa.me/8618867954290?text=Bonjour%20AfriShop!%20Je%20veux%20commander%20le%20Tecno%20Spark%2020%20(850,000%20GNF)." class="btn">Commander sur WhatsApp</a>
+            <a href="https://wa.me/8618867954290?text=Je%20veux%20le%20Tecno%20Spark%2020%20(850k%20GNF)" class="btn">Commander sur WhatsApp</a>
+        </div>
+
+        <!-- Lampe Anti-moustique -->
+        <div class="card">
+            <div class="new-label">NOUVEAU</div>
+            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON</div>
+            <div class="prod-img-box">
+                <img src="https://sc02.alicdn.com/kf/A94fceb222f164ab6bb416373e77c74e5F.png" alt="Lampe Anti-moustique">
+            </div>
+            <h3>Lampe Anti-moustique Solaire UV</h3>
+            <p class="desc">Protection 24h sans électricité. Étanche IP65. Fini les moustiques !</p>
+            <div class="price">195,000 GNF</div>
+            <a href="https://wa.me/8618867954290?text=Je%20veux%20la%20Lampe%20Anti-moustique%20(195k%20GNF)" class="btn">Commander sur WhatsApp</a>
+        </div>
+
+        <!-- Kit Solaire -->
+        <div class="card">
+            <div class="new-label">NOUVEAU</div>
+            <div class="badge-cod">🚚 PAYEZ À LA LIVRAISON</div>
+            <div class="prod-img-box">
+                <img src="https://sc02.alicdn.com/kf/A836a43ccacd34dd98b1083a11723bba8o.png" alt="Kit Solaire">
+            </div>
+            <h3>Kit Solaire Domestique (3 Lampes + Radio)</h3>
+            <p class="desc">Éclairez toute votre maison. Radio FM intégrée. Chargeur téléphone inclus.</p>
+            <div class="price">1,450,000 GNF</div>
+            <a href="https://wa.me/8618867954290?text=Je%20veux%20le%20Kit%20Solaire%20Domestique%20(1.45M%20GNF)" class="btn">Commander sur WhatsApp</a>
         </div>
     </div>
+
+    <section class="trust-section">
+        <h3>Ce que nos clients disent à Conakry</h3>
+        <div class="review-grid">
+            <div class="review-card">
+                <p><strong>⭐⭐⭐⭐⭐ Mamadou K. (Kaloum)</strong></p>
+                <p>"Livraison fiable. Le ventilateur est top pour les nuits chaudes. Je recommande !"</p>
+            </div>
+            <div class="review-card">
+                <p><strong>⭐⭐⭐⭐⭐ Fatoumata S. (Dixinn)</strong></p>
+                <p>"La power bank charge super bien. Content de payer à la livraison."</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        &copy; 2026 AfriShop Guinea • Livraison Rapide à Conakry • Service Client 7j/7 • Site Officiel : https://l68370296-ctrl.github.io/afrishop-guinea/
+        &copy; 2026 AfriShop Guinea • Service Client 7j/7 • Boutique : https://l68370296-ctrl.github.io/afrishop-guinea/
     </footer>
 </body>
 </html>
