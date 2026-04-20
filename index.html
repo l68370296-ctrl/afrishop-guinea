@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AfriShop Guinea | Boutique Officielle Conakry</title>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VGY66N24Y8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-VGY66N24Y8');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VGY66N24Y8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VGY66N24Y8');
+    </script>
     <style>
         :root { --green: #1B6B3A; --gold: #F5A623; --white: #ffffff; --light-gray: #f9f9f9; }
         body { font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: var(--light-gray); color: #333; line-height: 1.5; }
@@ -126,8 +126,43 @@
         </div>
     </section>
 
+    <!-- WhatsApp悬浮按钮 -->
+    <a href="https://wa.me/8618867954290?text=Bonjour!%20Je%20suis%20intéressé%20par%20vos%20produits!" target="_blank" class="whatsapp-float" title="Contactez-nous sur WhatsApp">💬</a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+
     <footer>
-        &copy; 2026 AfriShop Guinea • Service Client 7j/7 • Boutique : https://l68370296-ctrl.github.io/afrishop-guinea/
+        &copy; 2026 AfriShop Guinea • Service Client 7j/7 • 
+        <a href="https://wa.me/8618867954290" style="color: #25D366;">WhatsApp: +86 188 6795 4290</a>
     </footer>
 </body>
 </html>
